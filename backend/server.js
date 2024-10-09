@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 import userRoutes from "./routes/user.routes.js";
 import mediaRoutes from "./routes/media.routes.js";
+import animeRoutes from "./routes/anime.routes.js";
 
 import { connectDB } from "./lib/db.js";
 
@@ -14,12 +15,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-app.use("/", (req, res) => {
-  res.send("Hello World");
-});
-
-app.use("/user", userRoutes);
-app.use("/media", mediaRoutes);
+app.use("/api/anime", animeRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
