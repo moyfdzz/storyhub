@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 import userRoutes from "./routes/user.routes.js";
 import mediaRoutes from "./routes/media.routes.js";
@@ -12,6 +13,9 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+
+// Allows you to access to the cookies
+app.use(cookieParser());
 
 const PORT = process.env.PORT || 3000;
 
