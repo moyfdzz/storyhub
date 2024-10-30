@@ -53,7 +53,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/"
+            to="/books-section"
             className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
           >
             Books
