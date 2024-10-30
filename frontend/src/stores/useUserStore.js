@@ -16,7 +16,7 @@ export const useUserStore = create((set, get) => ({
     }
 
     try {
-      const res = await axios.post("/auth/signup", {
+      const res = await axios.post("/user/signup", {
         username,
         email,
         password,
@@ -32,7 +32,7 @@ export const useUserStore = create((set, get) => ({
     set({ loading: true });
 
     try {
-      const res = await axios.post("/auth/login", { email, password });
+      const res = await axios.post("/user/login", { email, password });
       set({ user: res.data, loading: false });
     } catch (error) {
       set({ loading: false });
@@ -42,7 +42,7 @@ export const useUserStore = create((set, get) => ({
 
   logout: async () => {
     try {
-      await axios.post("/auth/logout");
+      await axios.post("/user/logout");
       set({ user: null });
     } catch (error) {
       toast.error(
@@ -54,7 +54,7 @@ export const useUserStore = create((set, get) => ({
   checkAuth: async () => {
     set({ checkingAuth: true });
     try {
-      const response = await axios.get("/auth/profile");
+      const response = await axios.get("/user/profile");
       set({ user: response.data, checkingAuth: false });
     } catch (error) {
       console.log(error.message);
@@ -68,7 +68,7 @@ export const useUserStore = create((set, get) => ({
 
     set({ checkingAuth: true });
     try {
-      const response = await axios.post("/auth/refresh-token");
+      const response = await axios.post("/user/refresh-token");
       set({ checkingAuth: false });
       return response.data;
     } catch (error) {
