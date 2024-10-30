@@ -25,28 +25,28 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/"
+            to="/profile-section"
             className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
           >
             Profile
           </Link>
 
           <Link
-            to="/"
+            to="/anime-section"
             className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
           >
             Anime
           </Link>
 
           <Link
-            to="/"
+            to="/series-section"
             className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
           >
             Series
           </Link>
 
           <Link
-            to="/"
+            to="/movies-section"
             className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
           >
             Movies
@@ -57,6 +57,13 @@ const Navbar = () => {
             className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
           >
             Books
+          </Link>
+
+          <Link
+            to="/search-section"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Search
           </Link>
 
           <nav className="flex flex-wrap items-center gap-4">
