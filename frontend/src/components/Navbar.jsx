@@ -17,14 +17,49 @@ const Navbar = () => {
             Storyhub
           </Link>
 
-          <nav className="flex flex-wrap items-center gap-4">
-            <Link
-              to={"/"}
-              className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-            >
-              Home
-            </Link>
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Home
+          </Link>
 
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Profile
+          </Link>
+
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Anime
+          </Link>
+
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Series
+          </Link>
+
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Movies
+          </Link>
+
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
+          >
+            Books
+          </Link>
+
+          <nav className="flex flex-wrap items-center gap-4">
             {isAdmin && (
               <Link
                 className="bg-blue-700 hover:bg-blue-600 text-white px-3 py-1 rounded-md font-medium transition duration-300 ease-in-out flex items-center"
