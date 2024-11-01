@@ -3,6 +3,12 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import ProfileSectionPage from "./pages/ProfileSectionPage";
+import AnimeSectionPage from "./pages/AnimeSectionPage";
+import SeriesSectionPage from "./pages/SeriesSectionPage";
+import MoviesSectionPage from "./pages/MoviesSectionPage";
+import BooksSectionPage from "./pages/BooksSectionPage";
+import SearchSectionPage from "./pages/SearchSectionPage";
 
 import Navbar from "./components/Navbar";
 import { useUserStore } from "./stores/useUserStore";
@@ -40,6 +46,30 @@ function App() {
           <Route
             path="/login"
             element={!user ? <LoginPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/profile-section"
+            element={!user ? <ProfileSectionPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/anime-section"
+            element={!user ? <AnimeSectionPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/series-section"
+            element={!user ? <SeriesSectionPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/movies-section"
+            element={!user ? <MoviesSectionPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/books-section"
+            element={!user ? <BooksSectionPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/search-section"
+            element={!user ? <SearchSectionPage /> : <Navigate to="/" />}
           />
         </Routes>
       </div>
