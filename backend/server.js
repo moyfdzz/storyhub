@@ -23,6 +23,7 @@ const PORT = process.env.PORT || 3000;
 app.use("/api/user", userRoutes);
 app.use("/api/anime", animeRoutes);
 app.use("/api/userMedia", userMediaRoutes);
+app.use("/api/media", mediaRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
