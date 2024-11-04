@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { useMediaStore } from "../stores/useMediaStore";
 
 const SearchBar = () => {
   const [selectedCategory, setSelectedCategory] = useState("Anime");
+  const [searchTitle, setSearchTitle] = useState("");
 
   const categories = ["Anime", "Series", "Movies", "Books"];
+
+  const { getMedia } = useMediaStore();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -27,10 +31,15 @@ const SearchBar = () => {
       <div className="flex items-center justify-center">
         <input
           type="text"
+          value={searchTitle}
+          onChange={(e) => setSearchTitle(e.target.value)}
           placeholder={`Type to find ${selectedCategory}`}
           className="w-full max-w-xl px-4 py-2 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
-        <button className="ml-2 text-gray-400 hover:text-blue-400 transition duration-300 flex items-center">
+        <button
+          className="ml-2 text-gray-400 hover:text-blue-400 transition duration-300 flex items-center"
+          onClick={() => getMedia(selectedCategory, searchTitle)}
+        >
           <Search />
         </button>
       </div>
