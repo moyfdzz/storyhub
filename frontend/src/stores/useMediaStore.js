@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 
 export const useMediaStore = create((set, get) => ({
   media: null,
+  mediaList: null,
   loadingState: false,
 
   getAnime: async (searchTitle) => {
@@ -24,7 +25,8 @@ export const useMediaStore = create((set, get) => ({
         try {
           const externalRes = await axios.get(`/anime/search/${searchTitle}`);
 
-          set({ animeData: externalRes.data, loadingState: false });
+          set({ mediaList: externalRes.data, loadingState: false });
+
           return externalRes.data;
         } catch (externalError) {
           console.error("Error fetching from external API:", externalError);
@@ -42,8 +44,6 @@ export const useMediaStore = create((set, get) => ({
 
   getMedia: async (selectedCategory, searchTitle) => {
     set({ loadingState: true });
-
-    console.log(selectedCategory);
 
     if (selectedCategory === "Anime") {
       await get().getAnime(searchTitle);
