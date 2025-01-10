@@ -1,10 +1,22 @@
 import { UserPlus, LogIn, LogOut, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useUserStore } from "../stores/useUserStore";
 
 const Navbar = () => {
   const { user, logout } = useUserStore();
   const isAdmin = user?.role === "admin";
+
+  const location = useLocation();
+
+  const navItems = [
+    { label: "Home", link: "/" },
+    { label: "Profile", link: "/profile-section" },
+    { label: "Anime", link: "/anime-section" },
+    { label: "Series", link: "/series-section" },
+    { label: "Movies", link: "/movies-section" },
+    { label: "Books", link: "/books-section" },
+    { label: "Search", link: "/search-section" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg z-40 transition-all duration-300 border-b border-blue-800">
@@ -17,56 +29,23 @@ const Navbar = () => {
             Storyhub
           </Link>
 
-          <Link
-            to="/"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Home
-          </Link>
+          <nav className="flex space-x-4">
+            {navItems.map((navItem) => (
+              <Link
+                key={navItem.link}
+                to={navItem.link}
+                className={`text-lg font-semibold px-4 py-2 ${
+                  location.pathname === navItem.link
+                    ? "text-blue-400 border-blue-400"
+                    : "text-gray-300 hover:text-blue-400"
+                } transition duration-300`}
+              >
+                {navItem.label}
+              </Link>
+            ))}
+          </nav>
 
-          <Link
-            to="/profile-section"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Profile
-          </Link>
-
-          <Link
-            to="/anime-section"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Anime
-          </Link>
-
-          <Link
-            to="/series-section"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Series
-          </Link>
-
-          <Link
-            to="/movies-section"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Movies
-          </Link>
-
-          <Link
-            to="/books-section"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Books
-          </Link>
-
-          <Link
-            to="/search-section"
-            className="text-gray-300 hover:text-blue-400 transition duration-300 ease-in-out"
-          >
-            Search
-          </Link>
-
-          <nav className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             {isAdmin && (
               <Link
                 className="bg-blue-700 hover:bg-blue-600 text-white px-3 py-1 rounded-md font-medium transition duration-300 ease-in-out flex items-center"
@@ -103,7 +82,7 @@ const Navbar = () => {
                 </Link>
               </>
             )}
-          </nav>
+          </div>
         </div>
       </div>
     </header>
