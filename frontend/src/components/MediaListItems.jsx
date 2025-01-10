@@ -58,7 +58,7 @@ const MediaListItems = ({ mediaListItems }) => {
                     />
                   </div>
                   <div className="p-4 text-center">
-                    <h3 className="text-lg font-semibold text-white mt-2">
+                    <h3 className="text-lg font-semibold text-gray-400 mt-2">
                       {media.title.english || media.title.romaji || "Untitled"}
                     </h3>
                   </div>
