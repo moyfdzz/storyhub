@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
+import authenticationRoutes from "./routes/authentication.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import mediaRoutes from "./routes/media.routes.js";
 import animeRoutes from "./routes/anime.routes.js";
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT || 3000;
 
+app.use("/api/auth", authenticationRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/anime", animeRoutes);
 app.use("/api/userMedia", userMediaRoutes);
